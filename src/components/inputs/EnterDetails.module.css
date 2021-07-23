@@ -1,0 +1,19 @@
+.h1-style {
+    text-align: center;
+}
+
+.form-control {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-input-style {
+    width: 100%;
+    /* margin-left: 25px;
+    margin-right: 5%; */
+}
+
+.grid-space {
+    margin: 20px;
+}

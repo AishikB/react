@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Container from '@material-ui/core/Container';
 
-function App() {
+import './App.css';
+import EnterDetails from './components/inputs/EnterDetails'
+import Details from './components/showDetails/Details';
+
+const App = () => {
+  const [details, setDetails] = useState([]);
+  const onSubmitHandler = (event, formData) => {
+    event.preventDefault();
+    setDetails((prevState) => {
+      return [
+        ...prevState,
+        formData
+      ]
+    })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+<Container className="align-container">
+  <EnterDetails onSubmit = {onSubmitHandler}/>
+  <Details details={details}/>
+</Container>
+  )
 }
 
 export default App;
